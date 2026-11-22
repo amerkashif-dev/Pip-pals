@@ -42,3 +42,11 @@ Edit `index.html`, bump `VERSION` in `sw.js`, push. Devices update on their next
 
 ## Voice tip
 On each device: Settings → Accessibility → Spoken Content → Voices → English → download an "Enhanced" or "Premium" voice. Pip Pals picks the best installed voice automatically, or choose one in the grown-ups panel.
+
+
+## What's new in v9
+- **Natural recorded voice**: 217 friendly voice clips ("Yay! You did it!", "Scrub scrub scrub!", counting, reading words) made offline with the open-source Kokoro voice (Apache-2.0). The device voice is only used for names.
+- **4 new learning games**: Memory Match, Hide & Seek, Word Pop (reading), Copy Cat (sequence memory).
+- **Games grow with your child**: every game has levels 1–5. On Auto, two great games in a row raise the level and two tough games lower it. Grown-ups can lock any game at any level in the Grown-ups panel.
+- **Pet has its own life**: when nobody is playing, the pet naps in its bed, looks out the window, sniffs flowers, chases butterflies, plays with toys and shows off tricks it learned. A trick is learned after it is asked for 3 times.
+- **Phone layout fixed**: the home screen is centered and the room fills the whole screen.

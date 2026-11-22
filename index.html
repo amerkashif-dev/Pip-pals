@@ -298,6 +298,58 @@ table.area{margin:0 auto 6px;border-collapse:collapse}table.area th{padding:4px 
 .quickNames button.selected{border-color:#8c6cf2;background:#eee6ff}
 button:focus-visible{outline:4px solid #4434b4;outline-offset:2px}
 #modal,.shBody{overscroll-behavior:contain}
+
+/* ---- v9 layout: fill the phone, no empty bottom ---- */
+#home.on{justify-content:flex-start}
+#home>:first-child{margin-top:auto}#home>:last-child{margin-bottom:auto}
+#home .logo{font-size:clamp(42px,7.5vh,66px)}
+#home .players{width:100%;max-width:460px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+#home .pcard{min-height:clamp(200px,27vh,300px)}
+#home .pcard .mini{width:clamp(110px,17vh,180px);height:clamp(110px,17vh,180px)}
+#home .homeFoot{margin-top:clamp(18px,4vh,40px)}
+.floor{height:30%}.sky{bottom:28%}
+#petWrap{width:min(68vw,clamp(240px,40vh,360px));bottom:clamp(6%,7vh,11%)}
+.deco{transform:scale(var(--dz,1));transform-origin:50% 50%}
+.act{height:clamp(66px,8.6vh,88px);font-size:clamp(28px,3.6vh,38px)}
+.act small{font-size:clamp(13px,1.6vh,15px)}
+.meters{padding:clamp(8px,1.2vh,12px) 10px clamp(4px,.8vh,8px)}
+.bar{height:clamp(14px,1.8vh,18px)}
+.btns{padding-bottom:clamp(10px,1.6vh,18px)}
+#pet{transition:transform .5s ease}
+.lvB{display:inline-block;background:#7c5cff;color:#fff;border-radius:10px;font-size:12px;padding:1px 7px;margin-left:4px;vertical-align:middle}
+.lvBox{margin:6px 0;border:2px solid #eadcff;border-radius:12px;padding:6px 10px;background:#fbf8ff}
+.lvBox summary{font-weight:900;cursor:pointer;padding:4px 0}
+.lvBox label{font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:8px}.lvBox select{max-width:58%;min-width:120px}
+/* memory */
+.memHead,.hsMsg,.ccMsg{text-align:center;font-size:clamp(20px,3vh,26px);font-weight:900;margin:14px 8px 8px;min-height:32px}
+.memGrid{display:grid;gap:10px;padding:8px 14px;max-width:520px;margin:0 auto}
+.mcard{aspect-ratio:3/4;border-radius:16px;position:relative;background:none;perspective:600px;font-size:clamp(30px,5vh,46px)}
+.mcard span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:16px;backface-visibility:hidden;transition:transform .35s;box-shadow:0 4px 0 rgba(0,0,0,.12)}
+.mcard .mb{background:linear-gradient(135deg,#ff8ccf,#a98bff);color:#fff;font-size:clamp(24px,4vh,34px)}
+.mcard .mf{background:#fff;transform:rotateY(180deg);border:3px solid #ffe0ef}
+.mcard.open .mb{transform:rotateY(180deg)}.mcard.open .mf{transform:rotateY(0)}
+.mcard.done .mf{border-color:#3fcf8e;background:#effff6}
+/* hide & seek */
+.hsRow{position:relative;height:clamp(230px,40vh,340px);margin:10px 10px 0}
+.hsSpot{position:absolute;bottom:0;width:clamp(80px,22vw,120px);height:100%;transform:translateX(-50%);transition:left .5s ease-in-out}
+.hsPet{position:absolute;bottom:0;left:0;right:0;height:62%}.hsPet svg,.hsPet img,.hsPet .art{width:100%;height:100%}
+.hsCover{position:absolute;bottom:0;left:0;right:0;height:62%;font-size:clamp(70px,13vh,100px);background:none;transition:transform .35s ease;line-height:1}
+.hsSpot.up .hsCover{transform:translateY(-75%)}
+/* word pop */
+.wpPet{width:clamp(110px,18vh,160px);height:clamp(110px,18vh,160px);margin:8px auto 0}.wpPet svg,.wpPet img{width:100%;height:100%}
+.wpPic{text-align:center;font-size:clamp(54px,9vh,80px);min-height:clamp(60px,10vh,90px)}
+.wpHear{display:block;margin:4px auto 10px}
+.wpOpts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:0 12px}
+.wpOpts button{min-width:118px;padding:16px 18px;border-radius:22px;background:#fff;font-size:clamp(26px,4vh,36px);font-weight:900;box-shadow:0 5px 0 #e2d6f5;border:3px solid #e9defc;font-family:"Avenir Next","Nunito",ui-rounded,system-ui,sans-serif}
+.wpOpts button.ok{background:#d7ffe9;border-color:#3fcf8e}.wpOpts button.bad{background:#ffe1e1;border-color:#ff7a7a}
+.wpLv{text-align:center;font-weight:800;opacity:.6;font-size:14px}
+/* copy cat */
+.ccPet{width:clamp(110px,18vh,160px);height:clamp(110px,18vh,160px);margin:6px auto 0}.ccPet svg,.ccPet img{width:100%;height:100%}
+.ccPads{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:360px;margin:8px auto;padding:0 16px}
+.ccPad{aspect-ratio:1.25;border-radius:26px;background:var(--c);opacity:.55;font-size:clamp(36px,6vh,52px);box-shadow:0 6px 0 rgba(0,0,0,.15);transition:opacity .12s,transform .12s}
+.ccPad.lit{opacity:1;transform:scale(1.06);box-shadow:0 0 0 6px #fff,0 0 26px var(--c)}
+.bpTarget{position:absolute;left:0;right:0;top:26px;text-align:center;font-size:22px;font-weight:900;z-index:3}
+
 @media (max-height:740px){.top{padding:4px 7px}.top .ib{width:43px;height:43px}.coins{height:42px;font-size:16px}.btns{gap:5px;padding:4px 7px 6px}.act{height:60px;border-radius:16px;font-size:26px}.act small{font-size:12px}.meters{padding:5px 8px 2px}.meter .ic{font-size:18px;width:22px}.bar{height:11px}.room{min-height:100px}.trailBadge,.hudBtn{top:6px;min-height:44px;min-width:44px}}
 @media (max-width:360px){.grid{gap:6px}.item{min-height:90px}.stickerGrid{gap:5px}.sticker .art{font-size:31px}.logo{font-size:36px}.top{gap:5px}}
 #pet.partyDance{animation:partyDance .55s ease-in-out 4}
@@ -449,6 +501,7 @@ const ROOMS={
  space:{n:'Space Station',p:60,e:'🚀',sky:'radial-gradient(circle at 75% 15%,#3b2b7a,#18113b 65%,#0f0a26)',floor:'linear-gradient(#7d6ec2,#574799)',deco:[['🪐',76,8,54],['⭐',14,14,26],['✨',40,10,24],['🚀',6,61,48],['🌍',58,26,30]],notes:[392,587,784,988]},
  castle:{n:'Castle',p:70,e:'🏰',sky:'radial-gradient(circle at 50% 10%,#fff8e6,#e7d4ff 55%,#d2b8fa)',floor:'linear-gradient(#d6b38f,#b88e65)',deco:[['🏰',70,8,64],['🦄',4,63,52],['👑',20,14,30],['🕯️',90,71,30]],notes:[523,659,784,1047]}
 };
+for(const [k,r] of Object.entries(ROOMS)){if(!r.deco.some(d=>d[0]==='🛏️'))r.deco.push(['🛏️',k==='candy'?30:k==='castle'?28:k==='space'?30:k==='ocean'?28:30,74,44])}
 const PET_NAMES=['Pip','Bubbles','Mochi','Sprinkles','Bean','Lulu','Pudding','Nugget','Coco','Daisy','Peanut','Twinkle','Muffin','Boba','Pebble','Sunny','Jellybean','Waffles','Kiwi','Biscuit','Poppy','Tofu','Button','Cupcake','Ziggy','Noodle','Honey','Marshmallow','Pickle','Snowball'];
 const COLORS=['#ff5fa2','#7c5cff','#18b6a4','#ff9d2e','#3a8bd6','#e0457b'];
 const GROW={kid:45,teen:1440,adult:4320};
@@ -593,7 +646,8 @@ function bestVoice(){
 
 let lastSay='',lastSayT=0;
 function softenLine(t){let s=String(t);s=s.replace(/^Hi! It's (.+)!$/,'Pip pip! $1 missed you!');s=s.replace(/^(.+?) is hungry!$/,'A tiny tummy is rumbling. Shall we share a snack with $1?');s=s.replace(/^(.+?) wants to play!$/,'$1 has a game idea! Tap play!');s=s.replace(/^(.+?) is sleepy\. Turn off the light!$/,'$1 is getting dreamy. Lights out?');s=s.replace(/^(.+?) needs a bath!$/,'Splish splash! A little bath for $1?');s=s.replace(/^(.+?) is sleeping\.$/,'Shh. $1 is dreaming of cozy clouds.');return s}
-function say(t,force=false){
+function say(t,force=false){if(!S||!S.settings.voice)return;const k=voFor(t);if(k&&vo(k,force))return;sayTTS(t,force)}
+function sayTTS(t,force=false){
  t=softenLine(t);
  if(!S||!S.settings.voice)return;
  if(!('speechSynthesis' in window))return;
@@ -1253,6 +1307,7 @@ function renderRoom(){
  let st='';for(let i=0;i<14;i++)st+=`<div class="st" style="left:${rand(2,95)}%;top:${rand(2,60)}%;animation-delay:${Math.random()*2}s">✦</div>`;
  $('#night').innerHTML='<div class="moon">🌙</div>'+st;
  syncMusic();
+ const rh=$('#room').clientHeight||420;$('#room').style.setProperty('--dz',Math.max(1,Math.min(1.6,rh/420)).toFixed(2));
 }
 function drawPet(force){
  const p=cur()&&cur().pet;if(!p)return;
@@ -1343,6 +1398,7 @@ function doTrick(id,t=''){
   if(asleep&&!['wake','love','sleep'].includes(id)){speak('Zzz... 💤');SFX.snore();say(`Shh. ${p.name} is sleeping. You can say wake up!`);return}
   if(p.tantrum&&['dance','jump','spin','sit','sing'].includes(id)){anim('shake',500);setMood('angry',1200);speak('Hmph! 😤');say(`${p.name} is being silly. Try saying I love you, or tap the manners star.`);return}
   const n=p.name;
+  if(!autoBusy)learnTrick(id);
   const cheer=()=>{p.happy=clamp(p.happy+3);save();updateGame()};
   switch(id){
     case 'hello':anim('jump',650);SFX.chirp();setMood('happy',1500);speak('Hi hi! 👋');say(pick([`Hi ${pl.name}! I missed you!`,`Hello, hello! It's me, ${n}!`,`Hiya ${pl.name}! Want to play?`]));cheer();break;
@@ -1401,6 +1457,298 @@ function openTricks(noMic){
   const m=$('#trMic');if(m)m.onclick=()=>{closeSheet();ac();startListening()};
 }
 
+/* ================= v9: natural voice clips, levels, new games, pet life ================= */
+
+/* ---------- recorded voice clips (Kokoro TTS af_heart, Apache-2.0; generated offline) ---------- */
+const VO_KEYS = ["almost", "amazing", "awesome", "bath_rub", "better", "boing", "bubbles", "butterfly", "catch_treats", "clean_thanks", "comfy", "copy_me", "counted", "cute", "dance", "didnt_hear", "dont_know", "dreams", "feel_great", "find_match", "flowers", "found_me", "full", "good_try", "great_job", "grew", "hatching", "hello_world", "here_i_am", "hi", "high_five", "hmph", "how_many", "hum", "island_bye", "joke1", "joke2", "joke3", "joke4", "joke5", "joke6", "keep_eye", "learned", "learned_new", "lets_play", "level_up", "listen", "look_me", "love_it", "love_too", "match", "morning", "my_toy", "n0", "n1", "n10", "n11", "n12", "n13", "n14", "n15", "n16", "n17", "n18", "n19", "n2", "n20", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "nap", "need_bath", "need_coins", "need_doctor", "need_food", "need_manners", "need_play", "need_poop", "need_sleep", "new_room", "nice_try", "night", "nom", "not_here", "not_sick", "not_sleepy", "one_more", "oops_try", "outside", "peekaboo", "pick_egg", "pick_name", "pick_one", "pop_bubbles", "pop_color", "present", "pretty", "ready", "rinse", "scrub", "shh", "sitting", "so_smart", "sorry", "squeaky", "stinky", "stretch", "super", "tap_egg", "tap_word", "tasty", "thats_right", "tickles", "times_up", "too_bright", "too_tired", "tummy_ache", "w_and", "w_are", "w_banana", "w_bat", "w_bed", "w_box", "w_brush", "w_bug", "w_bus", "w_butterfly", "w_can", "w_cat", "w_clock", "w_cloud", "w_come", "w_crab", "w_cup", "w_cupcake", "w_dinosaur", "w_dog", "w_down", "w_dragon", "w_drum", "w_elephant", "w_fan", "w_fish", "w_for", "w_fox", "w_frog", "w_go", "w_grape", "w_hat", "w_have", "w_he", "w_hen", "w_here", "w_in", "w_is", "w_it", "w_kitten", "w_like", "w_log", "w_look", "w_map", "w_me", "w_my", "w_nut", "w_octopus", "w_on", "w_pen", "w_pencil", "w_penguin", "w_pig", "w_plane", "w_play", "w_pumpkin", "w_rabbit", "w_rainbow", "w_rat", "w_rocket", "w_said", "w_sandwich", "w_see", "w_she", "w_ship", "w_sled", "w_snail", "w_snake", "w_star", "w_sun", "w_swing", "w_the", "w_they", "w_to", "w_train", "w_tree", "w_truck", "w_unicorn", "w_up", "w_van", "w_was", "w_we", "w_web", "w_what", "w_you", "watch", "what_next", "wheee", "where_am_i", "which_way", "woohoo", "yawn", "yay_did_it", "you_won", "your_turn", "yum"];
+const WORDS = {"1": [["cat", "🐱"], ["dog", "🐶"], ["sun", "☀️"], ["hat", "🎩"], ["pig", "🐷"], ["bed", "🛏️"], ["cup", "🥤"], ["fox", "🦊"], ["bus", "🚌"], ["hen", "🐔"], ["map", "🗺️"], ["bug", "🐛"], ["box", "📦"], ["bat", "🦇"], ["web", "🕸️"], ["fan", "🪭"], ["pen", "🖊️"], ["van", "🚐"], ["nut", "🥜"], ["log", "🪵"], ["rat", "🐀"]], "3": ["the", "and", "is", "it", "you", "we", "see", "can", "like", "look", "go", "to", "my", "me", "up", "down", "in", "on", "play", "said", "she", "he", "was", "are", "have", "they", "what", "come", "here", "for"], "4": [["frog", "🐸"], ["crab", "🦀"], ["ship", "🚢"], ["fish", "🐟"], ["star", "⭐"], ["tree", "🌳"], ["sled", "🛷"], ["clock", "⏰"], ["drum", "🥁"], ["snail", "🐌"], ["plane", "✈️"], ["train", "🚂"], ["truck", "🚚"], ["grape", "🍇"], ["cloud", "☁️"], ["snake", "🐍"], ["brush", "🪥"], ["swing", "🛝"]], "5": [["rabbit", "🐰"], ["rocket", "🚀"], ["dragon", "🐉"], ["rainbow", "🌈"], ["pencil", "✏️"], ["sandwich", "🥪"], ["pumpkin", "🎃"], ["kitten", "🐈"], ["penguin", "🐧"], ["cupcake", "🧁"], ["butterfly", "🦋"], ["dinosaur", "🦕"], ["unicorn", "🦄"], ["octopus", "🐙"], ["elephant", "🐘"], ["banana", "🍌"]]};
+const VOB = {};
+let voSrc = null, voQueue = [], voLoading = false;
+function voLoadAll() {
+  if (voLoading) return; const a = ac(); if (!a) return; voLoading = true;
+  let i = 0;
+  const next = () => { // a few at a time so the phone stays smooth
+    const batch = VO_KEYS.slice(i, i + 12); i += 12; if (!batch.length) return;
+    Promise.all(batch.map(k => fetch('audio/' + k + '.mp3').then(r => r.ok ? r.arrayBuffer() : Promise.reject()).then(b => new Promise((res, rej) => a.decodeAudioData(b, res, rej))).then(buf => { VOB[k] = buf; }).catch(() => {}))).then(() => setTimeout(next, 60));
+  };
+  next();
+}
+document.addEventListener('pointerdown', () => voLoadAll(), { capture: true, passive: true });
+function voPlayable(k) { return !!VOB[k]; }
+function vo(keys, force) {
+  if (!S || !S.settings.voice) return true;
+  keys = [].concat(keys).filter(Boolean);
+  if (!keys.length || !keys.every(voPlayable)) return false;
+  const a = ac(); if (!a) return false;
+  try { speechSynthesis.cancel(); } catch (e) {}
+  if (voSrc) { try { voSrc.onended = null; voSrc.stop(); } catch (e) {} voSrc = null; }
+  voQueue = keys.slice();
+  const playNext = () => {
+    const k = voQueue.shift(); if (!k) { voSrc = null; return; }
+    const s = a.createBufferSource(), g = a.createGain();
+    g.gain.value = S.settings.voVol == null ? 1 : S.settings.voVol;
+    s.buffer = VOB[k]; s.connect(g); g.connect(a.destination);
+    s.onended = () => { if (voSrc === s) setTimeout(playNext, 90); };
+    voSrc = s; s.start();
+  };
+  playNext(); lastSay = keys.join(','); lastSayT = Date.now();
+  return true;
+}
+const numKey = n => (n >= 0 && n <= 20 && Number.isInteger(n)) ? 'n' + n : null;
+const PRAISE = ['yay_did_it', 'great_job', 'awesome', 'amazing', 'super', 'woohoo', 'so_smart', 'high_five', 'thats_right'];
+const JOKE_KEYS = { cookie: 'joke1', dino: 'joke2', fish: 'joke3', cloud: 'joke4', banana: 'joke5', bear: 'joke6' };
+/* map the game's spoken lines onto recorded clips; anything else falls back to the device voice */
+function voFor(t) {
+  const s = String(t).toLowerCase();
+  let m;
+  if (/you earned \d+ coins/.test(s)) return /win|champ|star|super|🏆/.test(s) ? ['you_won'] : ['great_job'];
+  if ((m = s.match(/^it's (\d+)\.$/))) return numKey(+m[1]) ? [numKey(+m[1])] : null;
+  if ((m = s.match(/^(\d+)! yummy/))) return numKey(+m[1]) ? [numKey(+m[1]), 'yum'] : null;
+  if ((m = s.match(/^(\d+)$/))) return numKey(+m[1]) ? [numKey(+m[1])] : null;
+  if ((m = s.match(/^i counted to (\d+)/))) return ['counted'];
+  if (/why did the cookie/.test(s)) return [JOKE_KEYS.cookie]; if (/sleeping dinosaur/.test(s)) return [JOKE_KEYS.dino];
+  if (/fish so smart/.test(s)) return [JOKE_KEYS.fish]; if (/cloud wear/.test(s)) return [JOKE_KEYS.cloud];
+  if (/banana go to/.test(s)) return [JOKE_KEYS.banana]; if (/bear with no teeth/.test(s)) return [JOKE_KEYS.bear];
+  const R = [
+    [/^yes!$|you found it|great pattern/, () => [pick(PRAISE)]], [/nice try|good try/, ['nice_try']],
+    [/rub .* scrub|make lots of bubbles/, ['bath_rub']], [/squeaky clean/, ['squeaky']], [/tummy ache|too many treats/, ['tummy_ache']],
+    [/is full|i'm full/, ['full']], [/tummy is rumbling|is hungry/, ['need_food']], [/is yawning|is sleepy\b/, ['need_sleep']],
+    [/wants to play/, ['need_play']], [/bubbly bath|needs a bath/, ['need_bath']], [/made a .*poop/, ['need_poop']],
+    [/gentle checkup|not feeling well/, ['need_doctor']], [/is sick\. go to the doctor/, ['need_doctor']],
+    [/feeling grumpy|being silly|teach manners first/, ['need_manners']], [/learning good manners/, ['sorry']],
+    [/bedtime for/, ['need_sleep']], [/still bedtime/, ['shh']], [/it's bedtime\. please/, ['too_bright']],
+    [/is taking a nap/, ['nap']], [/^night night/, ['night']], [/already dreaming|smiles in their sleep/, ['dreams']],
+    [/is sleeping/, ['shh']], [/wide awake|good morning/, ['morning']], [/feels all better/, ['better']],
+    [/one more medicine/, ['one_more']], [/feels fine/, ['not_sick']], [/too sleepy to play|too tired/, ['too_tired']],
+    [/tap the egg|egg is listening/, ['tap_egg']], [/pick an egg/, ['pick_egg']], [/it hatched/, ['hatching', 'pick_name']],
+    [/grew into/, ['grew', 'look_me']], [/which way will/, ['which_way']], [/catch the treats/, ['catch_treats']],
+    [/pop the bubbles/, ['pop_bubbles']], [/what picture comes next|what comes next/, ['what_next']], [/how many/, ['how_many']],
+    [/a present/, ['present']], [/pet island/, ['island_bye']], [/more coins/, ['need_coins']], [/you got the/, ['love_it']],
+    [/^boing/, ['boing']], [/^wheee/, ['wheee']], [/^peekaboo/, ['peekaboo']], [/didn't hear/, ['didnt_hear']],
+    [/don't know that trick|say it again/, ['dont_know']], [/sitting so nicely|i sat down|did i do it right/, ['sitting']],
+    [/love you too|love you more|you're the best/, ['love_too']], [/dance/, ['dance']], [/feel super happy|feel great/, ['feel_great']],
+    [/^all clean/, ['clean_thanks']], [/^hi |^hello|^hiya|yay, you're here/, ['hi']]
+  ];
+  for (const [re, k] of R) if (re.test(s)) return typeof k === 'function' ? k() : k;
+  return null;
+}
+
+/* ---------- levels: grow with the child, grown-ups can choose ---------- */
+const GAMES = {
+  lr: { n: 'Left or Right', e: '👀' }, catch: { n: 'Treat Catch', e: '🍓' }, bubble: { n: 'Bubble Pop', e: '🫧' },
+  pattern: { n: 'Pattern Parade', e: '🧩' }, math: { n: 'Snack Math', e: '🔢' }, memory: { n: 'Memory Match', e: '🃏' },
+  hide: { n: 'Hide & Seek', e: '🙈' }, word: { n: 'Word Pop', e: '🔤' }, copy: { n: 'Copy Cat', e: '🎵' }
+};
+const MATH_LEVELS = ['count', 'add10', 'add20', 'times', 'big'];
+const LV_NAMES = {
+  math: ['Counting 1–10', 'Adding to 10', 'Adding to 20', 'Times tables', '2-digit × 2-digit'],
+  word: ['Picture words', 'Short words', 'Sight words', 'Blends', 'Long words'],
+  memory: ['3 pairs', '4 pairs', '6 pairs', '8 pairs', '10 pairs'],
+  hide: ['3 spots', '3 spots + shuffle', '4 spots + shuffle', '4 spots, fast', '5 spots, fastest'],
+  copy: ['2–4 notes', '3–5 notes', '4–6 notes', '5–7 notes', '6–9 notes, fast'],
+  pattern: ['AB patterns', 'AAB / ABB', 'ABC', 'AABB / ABBA', 'Long patterns'],
+  bubble: ['Pop them all', 'Smaller & faster', 'Pop one color', 'One color, faster', 'Two colors, fastest'],
+  catch: ['Slow', 'A bit faster', 'Medium', 'Fast', 'Super fast'],
+  lr: ['5 rounds', '6 rounds', '7 rounds', '8 rounds', '9 rounds']
+};
+function skillOf(pl, g) {
+  pl.skill = pl.skill || {};
+  if (!pl.skill[g]) {
+    let lv = 1;
+    if (g === 'math') lv = Math.max(1, MATH_LEVELS.indexOf(pl.math) + 1);
+    else if (pl.mode === 'big') lv = g === 'word' ? 4 : 3;
+    pl.skill[g] = { lv, auto: true, up: 0, down: 0, max: 5 };
+  }
+  return pl.skill[g];
+}
+const lvOf = (g, pl = cur()) => skillOf(pl, g).lv;
+function reportSkill(g, ratio) {
+  const pl = cur(); if (!pl || !GAMES[g]) return null;
+  const k = skillOf(pl, g); let msg = null;
+  if (!k.auto) { save(); return null; }
+  if (ratio >= 0.8) { k.up++; k.down = 0; } else if (ratio < 0.5) { k.down++; k.up = 0; } else { k.up = 0; k.down = 0; }
+  if (k.up >= 2 && k.lv < (k.max || 5)) { k.lv++; k.up = 0; msg = 'up'; }
+  if (k.down >= 2 && k.lv > 1) { k.lv--; k.down = 0; msg = 'down'; }
+  if (g === 'math') pl.math = MATH_LEVELS[k.lv - 1];
+  save(); return msg;
+}
+
+/* ---------- new mini-games ---------- */
+const CARD_ICONS = ['🍓', '🐶', '⭐', '🌈', '🦋', '🧁', '🍉', '🐱', '🚀', '🌸', '🍭', '🐢'];
+function mgMemory() {
+  const pl = cur(), p = pl.pet, lv = lvOf('memory'), pairs = [3, 4, 6, 8, 10][lv - 1];
+  const a = mgShell('Memory Match 🃏'); let first = null, lock = false, found = 0, tries = 0;
+  const icons = [...CARD_ICONS].sort(() => Math.random() - .5).slice(0, pairs);
+  const deck = [...icons, ...icons].sort(() => Math.random() - .5);
+  const cols = pairs <= 3 ? 3 : pairs <= 4 ? 4 : pairs <= 6 ? 4 : pairs <= 8 ? 4 : 5;
+  a.innerHTML = `<div class="memHead">Lv ${lv} · find the pairs!</div><div class="memGrid" style="grid-template-columns:repeat(${cols},1fr)">${deck.map((e, i) => `<button class="mcard" data-i="${i}"><span class="mf">${e}</span><span class="mb">🐾</span></button>`).join('')}</div>`;
+  vo('find_match') || say('Find the matching pairs!');
+  a.querySelectorAll('.mcard').forEach(b => b.onclick = () => {
+    if (lock || b.classList.contains('open')) return;
+    b.classList.add('open'); SFX.tap();
+    if (!first) { first = b; return; }
+    tries++; const b1 = first; first = null;
+    if (deck[b1.dataset.i] === deck[b.dataset.i]) {
+      found++; SFX.yay(); b1.classList.add('done'); b.classList.add('done'); $('#mgScore').textContent = '⭐ ' + found;
+      if (found === pairs) { const ratio = Math.min(1, pairs / tries * 1.4); mgT(() => endMG({ g: 'memory', ratio, title: ratio >= .8 ? 'Super memory! 🏆' : 'You matched them all! 🌟', coins: 3 + pairs, happy: 18, energy: 6 }), 700); }
+      else vo('match');
+    } else { lock = true; SFX.oops(); mgT(() => { b1.classList.remove('open'); b.classList.remove('open'); lock = false; }, 850); }
+  });
+}
+function mgHide() {
+  const pl = cur(), p = pl.pet, lv = lvOf('hide');
+  const spots = [3, 3, 4, 4, 5][lv - 1], swaps = [0, 2, 3, 5, 7][lv - 1], speed = [0, 650, 550, 420, 330][lv - 1];
+  const a = mgShell('Hide & Seek 🙈'); const ROUNDS = 5; let round = 0, score = 0, lock = true;
+  const covers = ['🧺', '📦', '🎁', '🪣', '🛍️'];
+  a.innerHTML = `<div class="hsMsg" id="hsMsg"></div><div class="hsRow" id="hsRow"></div><div class="dots" id="hsDots"></div>`;
+  const row = $('#hsRow');
+  const build = () => { row.innerHTML = Array.from({ length: spots }, (_, i) => `<div class="hsSpot" data-s="${i}" style="left:${(i + .5) / spots * 100}%"><div class="hsPet"></div><button class="hsCover">${covers[i % covers.length]}</button></div>`).join(''); };
+  const next = () => {
+    if (round >= ROUNDS) return endMG({ g: 'hide', ratio: score / ROUNDS, title: score >= 4 ? 'Super seeker! 🏆' : 'Found you! 🙈', coins: 3 + score * 2, happy: 18, energy: 6 });
+    build(); let at = rand(0, spots - 1); const els = [...row.children];
+    els[at].querySelector('.hsPet').innerHTML = petSVG(p, 'happy');
+    els.forEach(e => e.classList.add('up')); $('#hsMsg').textContent = swaps ? 'Keep your eye on me!' : 'Watch where I hide!';
+    vo(swaps ? 'keep_eye' : 'watch');
+    mgT(() => {
+      els.forEach(e => e.classList.remove('up')); SFX.pop();
+      let order = [...Array(spots).keys()]; // order[slot] = spot element index
+      let n = 0;
+      const doSwap = () => {
+        if (n >= swaps) { ask(); return; }
+        n++; const i = rand(0, spots - 1); let j = rand(0, spots - 2); if (j >= i) j++;
+        [order[i], order[j]] = [order[j], order[i]];
+        order.forEach((ei, slot) => { els[ei].style.left = ((slot + .5) / spots * 100) + '%'; els[ei].style.transitionDuration = (speed / 1000) + 's'; });
+        SFX.tap(); mgT(doSwap, speed + 60);
+      };
+      mgT(doSwap, 500);
+    }, 1300);
+    const ask = () => {
+      lock = false; $('#hsMsg').textContent = 'Where am I? Tap a box!'; vo('where_am_i');
+      els.forEach((e, ei) => e.querySelector('.hsCover').onclick = () => {
+        if (lock) return; lock = true; e.classList.add('up');
+        if (ei === at) { score++; SFX.yay(); vo('found_me'); $('#hsMsg').textContent = 'You found me! 🎉'; }
+        else { SFX.oops(); vo('not_here'); $('#hsMsg').textContent = 'Not here! 🙈'; mgT(() => els[at].classList.add('up'), 500); }
+        $('#mgScore').textContent = '⭐ ' + score; round++; $('#hsDots').textContent = Array.from({ length: ROUNDS }, (_, i) => i < round ? '⭐' : '◯').join(' ');
+        mgT(next, 1700);
+      });
+    };
+  };
+  $('#hsDots').textContent = Array.from({ length: ROUNDS }, () => '◯').join(' ');
+  next();
+}
+function wordPool(lv) {
+  const asObj = w => typeof w === 'string' ? { w, e: '' } : { w: w[0], e: w[1] };
+  if (lv <= 2) return WORDS[1].map(asObj); if (lv === 3) return WORDS[3].map(asObj);
+  if (lv === 4) return WORDS[4].map(asObj); return WORDS[5].map(asObj);
+}
+function mgWord() {
+  const pl = cur(), p = pl.pet, lv = lvOf('word'), N = 6, choices = lv <= 2 ? 3 : 4;
+  const a = mgShell('Word Pop 🔤'); let i = 0, score = 0, lock = false;
+  a.innerHTML = `<div class="wpPet" id="wpPet">${petSVG(p, 'happy')}</div><div class="wpPic" id="wpPic"></div><button class="mtB wpHear" id="wpHear">🔊 Hear it again</button><div class="wpOpts" id="wpOpts"></div><div class="dots" id="wpDots"></div><p class="wpLv">Lv ${lv} · ${LV_NAMES.word[lv - 1]}</p>`;
+  const pool = wordPool(lv); const used = new Set();
+  const sayWord = w => vo('w_' + w) || sayTTS(w);
+  const next = () => {
+    if (i >= N) return endMG({ g: 'word', ratio: score / N, title: score >= 5 ? 'Reading star! 🌟' : 'Great reading! 📚', coins: 2 + score, happy: 15, energy: 5 });
+    lock = false; let t; do { t = pick(pool); } while (used.has(t.w) && used.size < pool.length - 1); used.add(t.w);
+    let others = pool.filter(x => x.w !== t.w);
+    if (lv >= 3) { const sim = others.filter(x => x.w[0] === t.w[0] || x.w.slice(-2) === t.w.slice(-2) || x.w.length === t.w.length); if (sim.length >= choices - 1) others = sim; }
+    const opts = [t, ...others.sort(() => Math.random() - .5).slice(0, choices - 1)].sort(() => Math.random() - .5);
+    $('#wpPic').textContent = lv === 1 ? t.e : ''; $('#wpDots').textContent = `${i + 1} / ${N}`;
+    $('#wpOpts').innerHTML = opts.map(o => `<button data-w="${o.w}">${o.w}</button>`).join('');
+    $('#wpPet').innerHTML = petSVG(p, 'normal');
+    if (i === 0) { vo(['tap_word']); mgT(() => sayWord(t.w), 1500); } else sayWord(t.w);
+    $('#wpHear').onclick = () => sayWord(t.w);
+    $('#wpOpts').querySelectorAll('button').forEach(b => b.onclick = () => {
+      if (lock) return; lock = true;
+      if (b.dataset.w === t.w) { score++; b.classList.add('ok'); SFX.yay(); $('#wpPet').innerHTML = petSVG(p, 'happy'); vo(pick(PRAISE)); $('#wpPic').textContent = t.e || '⭐'; }
+      else { b.classList.add('bad'); SFX.oops(); $('#wpPet').innerHTML = petSVG(p, 'surprised'); $('#wpOpts').querySelector(`[data-w="${t.w}"]`).classList.add('ok'); mgT(() => sayWord(t.w), 300); }
+      $('#mgScore').textContent = '⭐ ' + score; i++; mgT(next, 1800);
+    });
+  };
+  next();
+}
+function mgCopy() {
+  const pl = cur(), p = pl.pet, lv = lvOf('copy');
+  const startLen = [2, 3, 4, 5, 6][lv - 1], maxLen = [4, 5, 6, 7, 9][lv - 1], gap = [650, 600, 520, 460, 380][lv - 1];
+  const PADS = [['#ff6fa8', 523, '🍓'], ['#ffd23f', 659, '⭐'], ['#4fc3f7', 784, '💧'], ['#7ed957', 988, '🍀']];
+  const a = mgShell('Copy Cat 🎵'); let seq = [], step = 0, lock = true, best = 0, round = 0;
+  a.innerHTML = `<div class="ccPet" id="ccPet">${petSVG(p, 'happy')}</div><div class="ccMsg" id="ccMsg"></div><div class="ccPads">${PADS.map((d, i) => `<button class="ccPad" data-i="${i}" style="--c:${d[0]}">${d[2]}</button>`).join('')}</div><p class="wpLv">Lv ${lv} · ${LV_NAMES.copy[lv - 1]}</p>`;
+  const flash = i => { const b = a.querySelector(`.ccPad[data-i="${i}"]`); b.classList.add('lit'); tone(PADS[i][1], .3, 'triangle', .09); setTimeout(() => b.classList.remove('lit'), gap * .6); };
+  const show = () => {
+    lock = true; step = 0; $('#ccMsg').textContent = 'Watch me!'; vo('watch');
+    seq.forEach((v, k) => mgT(() => flash(v), 900 + k * gap));
+    mgT(() => { lock = false; $('#ccMsg').textContent = 'Your turn!'; vo('your_turn'); }, 900 + seq.length * gap + 200);
+  };
+  const newRound = () => { seq = Array.from({ length: Math.min(maxLen, startLen + round) }, () => rand(0, 3)); show(); };
+  a.querySelectorAll('.ccPad').forEach(b => b.onclick = () => {
+    if (lock) return; const i = +b.dataset.i; flash(i);
+    if (i !== seq[step]) {
+      lock = true; SFX.oops(); $('#ccPet').innerHTML = petSVG(p, 'surprised');
+      const ratio = Math.min(1, round / 4);
+      mgT(() => endMG({ g: 'copy', ratio, title: round >= 4 ? 'Copy Cat champ! 🏆' : 'Great listening! 🎵', coins: 2 + round * 2, happy: 16, energy: 5 }), 900); return;
+    }
+    step++;
+    if (step === seq.length) {
+      lock = true; round++; best = seq.length; $('#mgScore').textContent = '⭐ ' + round; $('#ccPet').innerHTML = petSVG(p, 'love'); SFX.yay(); vo(pick(PRAISE));
+      if (round >= 6) return mgT(() => endMG({ g: 'copy', ratio: 1, title: 'Copy Cat champ! 🏆', coins: 14, happy: 18, energy: 5 }), 900);
+      mgT(() => { $('#ccPet').innerHTML = petSVG(p, 'happy'); newRound(); }, 1300);
+    }
+  });
+  mgT(newRound, 400);
+}
+
+/* ---------- the pet's own little life ---------- */
+const DECO_ACT = { '🛏️': 'bed', '🪟': 'look', '☀️': 'look', '🪐': 'look', '🌈': 'look', '🏰': 'look', '🌍': 'look', '☁️': 'look',
+  '🪴': 'sniff', '🌷': 'sniff', '🌻': 'sniff', '🪸': 'sniff', '🖼️': 'admire', '👑': 'admire', '🦄': 'admire', '🕯️': 'admire', '🚀': 'admire',
+  '🦋': 'chase', '🐠': 'chase', '🐙': 'chase', '🫧': 'chase', '⭐': 'chase', '✨': 'chase', '🐚': 'play', '🍭': 'play', '🧁': 'play', '🍬': 'play' };
+let autoT = null, autoBusy = false, autoTalk = 0;
+function autoSay(key) { autoTalk++; if (autoTalk % 3 === 1) vo(key); }
+function autoEnd() { autoBusy = false; const el = $('#pet'); el.style.transform = ''; el.classList.remove('lyingDown'); tempMood = null; drawPet(true); }
+function walkTo(x) { const nx = clamp(x, 16, 84); $('#petFlip').style.transform = nx < petX ? 'scaleX(-1)' : 'scaleX(1)'; petX = nx; $('#petWrap').style.left = nx + '%'; $('#pet').classList.add('walk'); setTimeout(() => $('#pet').classList.remove('walk'), 2200); }
+function canAuto(p) { return p && p.stage !== 'egg' && !p.asleep && !p.sick && !p.tantrum && !busy && !bathing && !autoBusy && $('#game').classList.contains('on') && !$('#mg').classList.contains('on') && !$('#modal').classList.contains('on') && !$('#sheet').classList.contains('on') && !listening; }
+function doAutonomous(p) {
+  const pl = cur(); const decos = [...document.querySelectorAll('#decos .deco')].filter(d => DECO_ACT[d.textContent.trim()]);
+  const learned = Object.entries(p.learned || {}).filter(([k, v]) => v >= 3).map(([k]) => k).filter(k => ['dance', 'jump', 'spin', 'sing', 'sit', 'peekaboo'].includes(k));
+  const r = Math.random();
+  if (learned.length && r < 0.25) { // show off a trick it learned
+    autoBusy = true; const t = pick(learned); speak('🎓 Look what I learned!', 2000); autoSay('learned');
+    setTimeout(() => { if (!autoBusy) return; doTrick(t, t === 'count' ? 'count to 5' : ''); setTimeout(autoEnd, 2600); }, 1400); return true;
+  }
+  if (pl.toys && pl.toys.length && r < 0.38 && p.energy > 30) { autoBusy = true; autoSay('my_toy'); playToy(pick(pl.toys)); setTimeout(() => { autoBusy = false; }, 3200); return true; }
+  if (r < 0.48) { // idle fidgets
+    autoBusy = true; const f = pick(['stretch', 'hum', 'spinTail', 'wave']);
+    if (f === 'stretch') { anim('hug', 700); speak('Stretch! 🙆', 1600); autoSay('stretch'); }
+    if (f === 'hum') { setMood('happy', 2400); burst(['🎵', '🎶'], 4); autoSay('hum'); petVoice(p.species, p.stage, 'happy'); }
+    if (f === 'spinTail') { anim('dance', 2200); speak('Wheee! 🌀', 1500); }
+    if (f === 'wave') { anim('jump', 650); speak('👋', 1200); petVoice(p.species, p.stage, 'happy'); }
+    setTimeout(autoEnd, 2600); return true;
+  }
+  if (!decos.length) return false;
+  const d = pick(decos), act = DECO_ACT[d.textContent.trim()], dx = +d.dataset.px || 50, emoji = d.textContent.trim();
+  autoBusy = true; walkTo(act === 'bed' ? clamp(dx + (dx < 50 ? 14 : -14), 26, 74) : dx + (dx < 50 ? 10 : -10));
+  setTimeout(() => {
+    if (!autoBusy) return;
+    $('#petFlip').style.transform = dx < petX ? 'scaleX(-1)' : 'scaleX(1)';
+    if (act === 'bed') {
+      const tired = p.energy < 60; setMood('sleep', 6000); $('#pet').classList.add('lyingDown'); $('#pet').style.transform = `rotate(${dx < 50 ? -78 : 78}deg) translateY(18%) scale(.92)`;
+      speak(tired ? 'So comfy... 💤' : 'Comfy bed! 🛏️', 2400); autoSay(tired ? 'nap' : 'comfy'); $('#zzz').style.display = 'block';
+      p.energy = clamp(p.energy + 3); setTimeout(() => { $('#zzz').style.display = 'none'; autoEnd(); }, 6000);
+    } else if (act === 'look') { tempLook = dx < petX ? -1 : 1; setMood('surprised', 1200); setTimeout(() => setMood('happy', 2200), 1200); speak(`${pick(['Ooh!', 'Wow!', 'So pretty!'])} ${emoji}`, 2600); autoSay('outside'); setTimeout(() => { tempLook = 0; autoEnd(); }, 3800); }
+    else if (act === 'sniff') { anim('hug', 700); burst(['🌸', '💕', emoji], 5); speak('Sniff sniff! 🌸', 2200); autoSay('flowers'); setTimeout(autoEnd, 3000); }
+    else if (act === 'admire') { setMood('love', 2500); speak(`I like this! ${emoji}`, 2400); autoSay('pretty'); setTimeout(autoEnd, 3000); }
+    else if (act === 'chase') { [0, 700, 1400].forEach(t => setTimeout(() => { anim('jump', 650); fx(emoji, petX + rand(-8, 8), 40); }, t)); speak('Come back! ' + emoji, 2400); autoSay('butterfly'); setTimeout(autoEnd, 2700); }
+    else if (act === 'play') { anim('wobble', 550); burst(['🎵', emoji], 4); speak('Wheee! ' + emoji, 2000); setTimeout(autoEnd, 2500); }
+  }, 2300);
+  return true;
+}
+function learnTrick(id) {
+  const p = cur() && cur().pet; if (!p) return;
+  p.learned = p.learned || {}; p.learned[id] = (p.learned[id] || 0) + 1;
+  if (p.learned[id] === 3) { const k = TRICKS.find(x => x.id === id); setTimeout(() => { toast(`🎓 ${p.name} learned "${k ? k.n : id}"! Watch for it when ${p.name} is playing alone.`); vo('learned_new'); }, 2500); }
+  save();
+}
+
+$('#room').addEventListener('pointerdown',()=>{if(autoBusy){autoEnd();$('#zzz').style.display='none'}},{capture:true});
 /* main loop */
 setInterval(()=>{
  if(document.hidden)return;
@@ -1416,7 +1764,8 @@ setInterval(()=>{if($('#home').classList.contains('on'))renderHome()},30000);
 /* wandering + 2.5D room parallax */
 function wander(){
  const p=cur()&&cur().pet;
- if(p&&p.stage!=='egg'&&!p.asleep&&!busy&&!bathing&&$('#game').classList.contains('on')&&!$('#mg').classList.contains('on')){
+ if(canAuto(p)&&Math.random()<.45&&doAutonomous(p)){wanderT=setTimeout(wander,rand(9000,14000));return}
+ if(p&&!autoBusy&&p.stage!=='egg'&&!p.asleep&&!busy&&!bathing&&$('#game').classList.contains('on')&&!$('#mg').classList.contains('on')){
   const nx=rand(22,78);if(Math.abs(nx-petX)>8){$('#petFlip').style.transform=nx<petX?'scaleX(-1)':'scaleX(1)';petX=nx;$('#petWrap').style.left=nx+'%';$('#pet').classList.add('walk');setTimeout(()=>$('#pet').classList.remove('walk'),2200)}
  }
  wanderT=setTimeout(wander,rand(3500,7000));
@@ -1514,8 +1863,12 @@ const ACT={
    <button class="gameCard" data-g="bubble"><div class="e">🫧</div><div><b>Bubble Pop</b><span>Pop as many bubbles as you can</span></div></button>
    <button class="gameCard" data-g="pattern"><div class="e">🧩</div><div><b>Pattern Parade</b><span>Finish the picture trail!</span></div></button>
    <button class="gameCard" data-g="math"><div class="e">🔢</div><div><b>Snack Math</b><span>Answer to feed ${esc(p.name)} berries</span></div></button>
+   <button class="gameCard" data-g="memory"><div class="e">🃏</div><div><b>Memory Match</b><span>Flip cards and find the pairs</span></div></button>
+   <button class="gameCard" data-g="hide"><div class="e">🙈</div><div><b>Hide &amp; Seek</b><span>Keep your eye on ${esc(p.name)}!</span></div></button>
+   <button class="gameCard" data-g="word"><div class="e">🔤</div><div><b>Word Pop</b><span>Listen and tap the word</span></div></button>
+   <button class="gameCard" data-g="copy"><div class="e">🎵</div><div><b>Copy Cat</b><span>Copy the colors and sounds</span></div></button>
    <div class="secT">Toys & Fun</div><div class="grid">${pl.toys.map(t=>`<button class="item" data-t="${t}"><div class="e">${TOYS[t].e}</div><div class="n">${TOYS[t].n}</div></button>`).join('')}<button class="item" data-extra="dance"><div class="e">💃</div><div class="n">Dance Party</div></button><button class="item" data-extra="playdate"><div class="e">🎈</div><div class="n">Playdate</div></button></div>`);
-  document.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{closeSheet();startGame(b.dataset.g)});
+  document.querySelectorAll('[data-g]').forEach(b=>{const g=b.dataset.g;if(GAMES[g]){const t=b.querySelector('b');if(t&&!t.querySelector('.lvB'))t.insertAdjacentHTML('beforeend',` <span class="lvB">Lv ${lvOf(g)}</span>`)}b.onclick=()=>{closeSheet();startGame(g)}});
   document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{closeSheet();playToy(b.dataset.t)});
   document.querySelectorAll('[data-extra]').forEach(b=>b.onclick=()=>{
    closeSheet();
@@ -1696,6 +2049,9 @@ function endMG(res){
  if(!res){updateGame();return}
  const p=cur().pet;p.happy=clamp(p.happy+res.happy);p.energy=clamp(p.energy-res.energy);p.playCount++;p.weight=Math.max(3,p.weight-1);
  cur().coins+=res.coins;trailMark('game');save();updateGame();SFX.yay();
+ const lvMsg=res.g?reportSkill(res.g,res.ratio||0):null;
+ if(lvMsg==='up')setTimeout(()=>{toast(`⬆️ ${GAMES[res.g].n} is now Level ${lvOf(res.g)}!`);vo('level_up')},2600);
+ if(lvMsg==='down')setTimeout(()=>toast(`${GAMES[res.g].n} will be a little easier next time 💖`),2600);
  openModal(`<div class="mBig">${petSVG(p,'happy')}</div><h2>${res.title}</h2><p style="font-size:28px">🪙 +${res.coins}</p><p>${esc(p.name)} had fun! 😊</p><button class="big green" onclick="closeModal()">OK!</button>`);
  say(`${res.title} You earned ${res.coins} coins!`,true);
 }
@@ -1704,19 +2060,19 @@ function startGame(g){
  if(p.sick){speak("I don't feel well 🤒");say(`${p.name} is sick. Go to the doctor first!`);return}
  if(p.energy<12){SFX.yawn();speak('Too sleepy... 😴');say(`${p.name} is too sleepy to play. Turn off the light for a nap.`);return}
  if(p.tantrum){anim('shake',500);speak('Hmph! 😤');say('Teach manners first!');return}
- ({lr:mgLR,catch:mgCatch,bubble:mgBubble,math:mgMath,pattern:mgPattern})[g]();
+ ({lr:mgLR,catch:mgCatch,bubble:mgBubble,math:mgMath,pattern:mgPattern,memory:mgMemory,hide:mgHide,word:mgWord,copy:mgCopy})[g]();
 }
 function mgLR(){
- const p=cur().pet,a=mgShell('Left or Right? 👀');let round=0,score=0,lock=true;
- a.innerHTML=`<div class="lrPet" id="lrPet"></div><div class="lrMsg" id="lrMsg"></div><div class="lrBtns"><button class="big" id="lrL">⬅️</button><button class="big" id="lrR">➡️</button></div><div class="dots" id="lrDots">⚪⚪⚪⚪⚪</div>`;
+ const p=cur().pet,a=mgShell('Left or Right? 👀');let round=0,score=0,lock=true;const RN=[5,6,7,8,9][lvOf('lr')-1];
+ a.innerHTML=`<div class="lrPet" id="lrPet"></div><div class="lrMsg" id="lrMsg"></div><div class="lrBtns"><button class="big" id="lrL">⬅️</button><button class="big" id="lrR">➡️</button></div><div class="dots" id="lrDots">${'⚪'.repeat(RN)}</div>`;
  const draw=(m,l)=>{$('#lrPet').innerHTML=petSVG(p,m,l);$('#lrPet').style.transform=`rotate(${l*7}deg)`};
  const res=[];
- const next=()=>{if(round>=5)return finish();draw('normal',0);$('#lrMsg').textContent=`Which way will ${p.name} look?`;lock=false};
+ const next=()=>{if(round>=RN)return finish();draw('normal',0);$('#lrMsg').textContent=`Which way will ${p.name} look?`;lock=false};
  const go=d=>{if(lock)return;lock=true;SFX.tap();const pd=Math.random()<.5?-1:1;draw('normal',pd);
   mgT(()=>{const w=pd===d;res.push(w?'💖':'❌');if(w){score++;draw('happy',pd);SFX.yay();$('#lrMsg').textContent='Yes! 🎉'}else{draw('surprised',pd);SFX.oops();$('#lrMsg').textContent='Oops! 🙈'}
-   $('#mgScore').textContent='⭐ '+score;$('#lrDots').textContent=res.join('')+'⚪'.repeat(5-res.length);round++;mgT(next,1100)},450)};
+   $('#mgScore').textContent='⭐ '+score;$('#lrDots').textContent=res.join('')+'⚪'.repeat(RN-res.length);round++;mgT(next,1100)},450)};
  $('#lrL').onclick=()=>go(-1);$('#lrR').onclick=()=>go(1);
- const finish=()=>endMG(score>=3?{title:'You win! 🏆',coins:3+score,happy:20,energy:8}:{title:'Good try! 😊',coins:2,happy:10,energy:6});
+ const finish=()=>endMG(score>=Math.ceil(RN*.6)?{g:'lr',ratio:score/RN,title:'You win! 🏆',coins:3+score,happy:20,energy:8}:{g:'lr',ratio:score/RN,title:'Good try! 😊',coins:2,happy:10,energy:6});
  next();say(`Which way will ${p.name} look? Tap left or right!`);
 }
 function mgCatch(){
@@ -1726,7 +2082,7 @@ function mgCatch(){
  const items=[];const W=()=>a.clientWidth,H=()=>a.clientHeight;
  const setT=e=>{const r=a.getBoundingClientRect();tx=clamp((e.clientX-r.left)/r.width*100,8,92)};
  a.addEventListener('pointerdown',setT);a.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||e.buttons)setT(e)});
- mgI(()=>{const bad=Math.random()<.22,gold=!bad&&Math.random()<.1;const d=document.createElement('div');d.className='fall';d.textContent=bad?'⛈️':gold?'⭐':pick(['🍓','🍎','🍪','🍬','🍇','🧁']);a.appendChild(d);items.push({d,x:rand(8,92),y:-6,v:(rand(18,30)+(Date.now()-t0)/2500)*(isBig()?1.35:1),bad,gold})},650);
+ mgI(()=>{const bad=Math.random()<.22,gold=!bad&&Math.random()<.1;const d=document.createElement('div');d.className='fall';d.textContent=bad?'⛈️':gold?'⭐':pick(['🍓','🍎','🍪','🍬','🍇','🧁']);a.appendChild(d);items.push({d,x:rand(8,92),y:-6,v:(rand(18,30)+(Date.now()-t0)/2500)*[0.8,1,1.2,1.45,1.7][lvOf('catch')-1],bad,gold})},650);
  let last=performance.now(),cm=null;
  const loop=now=>{const dt=Math.min(.05,(now-last)/1000);last=now;x+=(tx-x)*Math.min(1,dt*10);$('#cat').style.left=x+'%';
   for(let i=items.length-1;i>=0;i--){const it=items[i];it.y+=it.v*dt;it.d.style.left=it.x+'%';it.d.style.top=it.y+'%';
@@ -1737,30 +2093,38 @@ function mgCatch(){
     $('#mgScore').textContent='⭐ '+score;continue}
    if(it.y>108){it.d.remove();items.splice(i,1)}}
   const left=1-(Date.now()-t0)/DUR;$('#tbar').style.width=Math.max(0,left*100)+'%';
-  if(left<=0){clearTimeout(cm);return endMG({title:score>=10?'Super catcher! 🏆':'Yummy! 😋',coins:Math.min(15,Math.ceil(score/2)+1),happy:18,energy:10})}
+  if(left<=0){clearTimeout(cm);return endMG({g:'catch',ratio:Math.min(1,score/14),title:score>=10?'Super catcher! 🏆':'Yummy! 😋',coins:Math.min(15,Math.ceil(score/2)+1),happy:18,energy:10})}
   MG.raf=requestAnimationFrame(loop)};
  MG.raf=requestAnimationFrame(loop);
  say(`Move ${p.name} to catch the treats! Watch out for rain clouds!`);
 }
 function mgBubble(){
- const a=mgShell('Bubble Pop 🫧');let score=0;const DUR=20000,t0=Date.now();
- a.style.background='linear-gradient(#d9f2ff,#ffe6f4)';a.innerHTML=`<div class="timer"><div id="tbar"></div></div>`;
- mgI(()=>{const b=document.createElement('div');const gold=Math.random()<.12,sz=isBig()?rand(46,70):rand(58,92);b.className='bubble'+(gold?' gold':'');b.style.width=b.style.height=sz+'px';b.style.left=rand(2,82)+'%';b.style.animationDuration=(rand(40,60)/10)+'s';if(gold)b.textContent='⭐';
-  b.addEventListener('pointerdown',e=>{e.stopPropagation();score+=gold?3:1;SFX.pop();$('#mgScore').textContent='⭐ '+score;const r=a.getBoundingClientRect(),f=document.createElement('div');f.className='popfx';f.textContent=gold?'+3':'+1';f.style.left=(e.clientX-r.left)+'px';f.style.top=(e.clientY-r.top)+'px';a.appendChild(f);setTimeout(()=>f.remove(),800);b.remove()});
-  b.addEventListener('animationend',()=>b.remove());a.appendChild(b)},420);
- mgI(()=>{const left=1-(Date.now()-t0)/DUR;$('#tbar').style.width=Math.max(0,left*100)+'%';if(left<=0)endMG({title:score>=20?'Bubble champ! 🏆':'Pop pop! 🫧',coins:Math.min(12,Math.ceil(score/3)+1),happy:16,energy:6})},100);
- say('Pop the bubbles! Gold ones are worth more!');
+ const lv=lvOf('bubble'),a=mgShell('Bubble Pop 🫧');let score=0,miss=0;const DUR=20000,t0=Date.now();
+ const COLS=[['pink','#ff8ccf','🩷'],['blue','#7ccfff','💙'],['green','#86e07a','💚'],['yellow','#ffd84a','💛']];
+ const colorMode=lv>=3,targets=colorMode?(lv>=5?COLS.slice().sort(()=>Math.random()-.5).slice(0,2):[pick(COLS)]):[];
+ const szR=[[58,92],[48,74],[56,84],[48,72],[44,66]][lv-1],durR=[[40,60],[32,48],[38,54],[30,44],[26,38]][lv-1];
+ a.style.background='linear-gradient(#d9f2ff,#ffe6f4)';
+ a.innerHTML=`<div class="timer"><div id="tbar"></div></div>${colorMode?`<div class="bpTarget">Pop only ${targets.map(t=>`<b style="color:${t[1]}">${t[2]} ${t[0].toUpperCase()}</b>`).join(' + ')}</div>`:''}`;
+ mgI(()=>{const b=document.createElement('div');const gold=!colorMode&&Math.random()<.12,sz=rand(...szR);let col=null;
+  if(colorMode){col=Math.random()<.5?pick(targets):pick(COLS);b.style.background=`radial-gradient(circle at 30% 30%,#fff,${col[1]} 65%)`}
+  b.className='bubble'+(gold?' gold':'');b.style.width=b.style.height=sz+'px';b.style.left=rand(2,82)+'%';b.style.animationDuration=(rand(...durR)/10)+'s';if(gold)b.textContent='⭐';
+  b.addEventListener('pointerdown',e=>{e.stopPropagation();const good=!colorMode||targets.includes(col);
+   if(good){score+=gold?3:1;SFX.pop()}else{miss++;score=Math.max(0,score-1);SFX.oops()}
+   $('#mgScore').textContent='⭐ '+score;const r=a.getBoundingClientRect(),f=document.createElement('div');f.className='popfx';f.textContent=good?(gold?'+3':'+1'):'✖';f.style.left=(e.clientX-r.left)+'px';f.style.top=(e.clientY-r.top)+'px';a.appendChild(f);setTimeout(()=>f.remove(),800);b.remove()});
+  b.addEventListener('animationend',()=>b.remove());a.appendChild(b)},colorMode?380:420);
+ mgI(()=>{const left=1-(Date.now()-t0)/DUR;$('#tbar').style.width=Math.max(0,left*100)+'%';if(left<=0)endMG({g:'bubble',ratio:Math.max(0,Math.min(1,score/(colorMode?11:16))-miss*.04),title:score>=(colorMode?12:20)?'Bubble champ! 🏆':'Pop pop! 🫧',coins:Math.min(12,Math.ceil(score/3)+1),happy:16,energy:6})},100);
+ vo(colorMode?'pop_color':'pop_bubbles')||say(colorMode?'Pop only the bubbles that match!':'Pop the bubbles!');
 }
 function mgPattern(){
  const pl=cur(),a=mgShell('Pattern Parade 🧩');let round=0,score=0,lock=false;
- const advanced=['times','big'].includes(pl.math),N=6;
+ const plv=lvOf('pattern'),advanced=plv>=4,N=6;
  a.innerHTML='<div class="questHead" style="margin:12px"><strong>🧩 What comes next?</strong><span>Follow the picture pattern!</span></div><div class="patternSeq" id="patternSeq"></div><div class="patternMsg" id="patternMsg"></div><div class="patternChoices" id="patternChoices"></div><div class="dots" id="patternDots"></div>';
  const alphabet=['🍓','🦋','⭐','🌈','🌼','💎','🧁','🍀','🌙','🐚'];
  const shuffled=()=>[...alphabet].sort(()=>Math.random()-.5);
- const shapes=advanced?['AB','ABC','AABB','ABBA']:['AB','AAB','ABB','ABC'];
+ const shapes=[['AB'],['AAB','ABB'],['ABC','AB'],['AABB','ABBA','ABC'],['AABB','ABBA','ABCC','AABC']][plv-1];
  const next=()=>{
-  if(round>=N)return endMG({title:score>=4?'Pattern champion! 🏆':'Wonderful exploring! 🌟',coins:3+score*2,happy:17,energy:6});
-  lock=false;const type=pick(shapes),set=shuffled(),used=set.slice(0,type==='ABC'?3:2),order=[...type].map(c=>used[c.charCodeAt(0)-65]);
+  if(round>=N)return endMG({g:'pattern',ratio:score/N,title:score>=4?'Pattern champion! 🏆':'Wonderful exploring! 🌟',coins:3+score*2,happy:17,energy:6});
+  lock=false;const type=pick(shapes),set=shuffled(),used=set.slice(0,new Set(type).size),order=[...type].map(c=>used[c.charCodeAt(0)-65]);
   const display=Array.from({length:advanced?7:5},(_,i)=>order[i%order.length]),ans=order[display.length%order.length];
   const options=[ans,...shuffled().filter(e=>e!==ans).slice(0,2)].sort(()=>Math.random()-.5);
   $('#patternSeq').innerHTML=display.map(e=>`<span>${e}</span>`).join('')+'<span class="unknown">?</span>';
@@ -1813,8 +2177,8 @@ function setupPad(){
 function mgMath(){
  const pl=cur(),p=pl.pet,a=mgShell('Snack Math 🔢');let i=0,score=0,lock=false;const N=6;
  a.innerHTML=`<div style="padding:10px 10px 0"><div class="mathPet" id="mPet">${petSVG(p,'happy')}</div><div class="mathPics" id="mPics"></div><div class="mathQ" id="mQ"></div><div class="mathOpts" id="mOpts"></div><div id="mTools"></div><div class="dots" id="mDots"></div><p style="text-align:center;font-weight:800;opacity:.6;font-size:14px">${MATH_LV[pl.math]}</p></div>`;
- const next=()=>{if(i>=N)return endMG({title:score>=5?'Math star! 🌟':'Nice work! 😊',coins:score+2,happy:15,energy:5});
-  const q=mathQ(pl.math);lock=false;$('#mPet').innerHTML=petSVG(p,'normal');$('#mPics').innerHTML=q.pics;$('#mQ').textContent=q.q;$('#mDots').textContent=`${i+1} / ${N}`;
+ const next=()=>{if(i>=N)return endMG({g:'math',ratio:score/N,title:score>=5?'Math star! 🌟':'Nice work! 😊',coins:score+2,happy:15,energy:5});
+  const q=mathQ(MATH_LEVELS[lvOf('math')-1]);lock=false;$('#mPet').innerHTML=petSVG(p,'normal');$('#mPics').innerHTML=q.pics;$('#mQ').textContent=q.q;$('#mDots').textContent=`${i+1} / ${N}`;
   $('#mOpts').innerHTML=distract(q).map(v=>`<button data-v="${v}">${v}</button>`).join('');
   $('#mTools').innerHTML=q.m?mathTools(q):'';if(q.m)bindMathTools(q);
   if(q.say)say(q.say);
@@ -1850,7 +2214,7 @@ function grownPanel(){
  const sw=(id,on)=>`<span class="sw"><input type="checkbox" id="${id}"${on?' checked':''}><span></span></span>`;
  const voices=refreshVoices().filter(v=>/^en/i.test(v.lang));
  const vOpts=`<option value="">Auto (Best Enhanced/Premium)</option>`+voices.map(v=>`<option value="${esc(v.voiceURI)}"${st.voiceURI===v.voiceURI?' selected':''}>${esc(v.name)}</option>`).join('');
- const players=S.players.map(pl=>{const p=pl.pet;return `<div class="pbox"><label>Name <input type="text" data-pn="${pl.id}" value="${esc(pl.name)}" maxlength="14"></label><label>Player type <select data-pmode="${pl.id}"><option value="little"${pl.mode!=='big'?' selected':''}>🧸 Little Kid</option><option value="big"${pl.mode==='big'?' selected':''}>🚀 Big Kid</option></select></label><label>Snack Math level <select data-pm="${pl.id}">${Object.entries(MATH_LV).map(([k,n])=>`<option value="${k}"${pl.math===k?' selected':''}>${n}</option>`).join('')}</select></label>
+ const players=S.players.map(pl=>{const p=pl.pet;return `<div class="pbox"><label>Name <input type="text" data-pn="${pl.id}" value="${esc(pl.name)}" maxlength="14"></label><label>Player type <select data-pmode="${pl.id}"><option value="little"${pl.mode!=='big'?' selected':''}>🧸 Little Kid</option><option value="big"${pl.mode==='big'?' selected':''}>🚀 Big Kid</option></select></label><details class="lvBox"><summary>🎚️ Game levels (Auto grows with ${esc(pl.name)})</summary>${Object.entries(GAMES).map(([g,G])=>{const k=skillOf(pl,g);return `<label>${G.e} ${G.n} <select data-skg="${pl.id}:${g}"><option value="auto"${k.auto?' selected':''}>Auto · Lv ${k.lv}</option>${[1,2,3,4,5].map(n=>`<option value="${n}"${!k.auto&&k.lv===n?' selected':''}>Lv ${n} · ${(LV_NAMES[g]||[])[n-1]||''}</option>`).join('')}</select></label>`}).join('')}<p class="tip">Auto: 2 great games in a row → next level; 2 tough games → one level easier. Pick a level to lock it there.</p></details>
   <p class="tip">${p?(p.stage==='egg'?'Egg not hatched yet.':`<b>${esc(p.name)}</b> (${formName(p)}, ${ageText(p)}) · Coins ${pl.coins} · Care misses ${p.careMiss} · Manners ${p.manners} · Friends found ${Object.keys(pl.book).length}/${Object.keys(SP).length*6}`):'No pet yet.'}</p>
   <button class="sbtn" data-gift="${pl.id}">🪙 Give 20 coins (reward)</button><button class="sbtn red" data-del="${pl.id}">Remove player</button></div>`}).join('');
  openModal(`<div class="gp"><h2 style="text-align:center">Grown-ups ⚙️</h2>
@@ -1858,6 +2222,7 @@ function grownPanel(){
   <label>Narrator voice <select id="sVoiceURI">${vOpts}</select></label>
   <label>Voice speed <input id="sVRate" type="range" min="0.65" max="1.25" step="0.05" value="${st.voiceRate>0?st.voiceRate:.85}"></label>
   <label>Voice pitch <input id="sVPitch" type="range" min="0.8" max="1.45" step="0.05" value="${st.voicePitch||1.12}"></label>
+  <label>Recorded voice volume <input id="sVoVol" type="range" min="0" max="1" step="0.1" value="${st.voVol??1}"></label>
   <label>Pet chatter volume <input id="sPetVol" type="range" min="0" max="1" step="0.1" value="${st.petVol??.7}"></label>
   <div style="padding:6px 0;border-bottom:1px solid #f3e6ee"><button class="sbtn" id="vTestBtn">🔊 Preview voice</button><button class="sbtn" id="pTestBtn">🐾 Hear pet</button></div>
   <p class="tip">Tip: for the most natural voice, download an "Enhanced" or "Premium" English voice in the device's Settings → Accessibility → Spoken Content → Voices, then pick it here.</p>
@@ -1879,15 +2244,15 @@ function grownPanel(){
   <textarea id="bkTxt" placeholder="Backup code appears here / paste one to load"></textarea>
   <button class="sbtn" id="pinChg">🔑 Change PIN</button><button class="sbtn red" id="resetAll">Reset everything</button>
   <div style="text-align:center;margin-top:12px"><button class="big" onclick="closeModal()">Done</button></div></div>`);
- const upd=()=>{st.voice=$('#sVoice').checked;st.voiceURI=$('#sVoiceURI').value;st.voiceRate=+$('#sVRate').value;st.voicePitch=+$('#sVPitch').value;st.petVol=+$('#sPetVol').value;st.sound=$('#sSound').checked;st.music=$('#sMusic').checked;st.bed=+$('#sBed').value;st.wake=+$('#sWake').value;st.speed=+$('#sSpeed').value;save();syncMusic()};
- ['sVoice','sVoiceURI','sVRate','sVPitch','sPetVol','sSound','sMusic','sBed','sWake','sSpeed'].forEach(id=>$('#'+id).onchange=upd);
- $('#vTestBtn').onclick=()=>{ac();upd();say('Hi there! Your Pip Pal is excited to play with you today!',true)};
+ const upd=()=>{st.voice=$('#sVoice').checked;st.voiceURI=$('#sVoiceURI').value;st.voiceRate=+$('#sVRate').value;st.voicePitch=+$('#sVPitch').value;st.petVol=+$('#sPetVol').value;st.voVol=+$('#sVoVol').value;st.sound=$('#sSound').checked;st.music=$('#sMusic').checked;st.bed=+$('#sBed').value;st.wake=+$('#sWake').value;st.speed=+$('#sSpeed').value;save();syncMusic()};
+ ['sVoice','sVoiceURI','sVRate','sVPitch','sPetVol','sVoVol','sSound','sMusic','sBed','sWake','sSpeed'].forEach(id=>$('#'+id).onchange=upd);
+ $('#vTestBtn').onclick=()=>{ac();upd();voLoadAll();if(!vo(['hello_world','yay_did_it']))sayTTS('Hi there! Your Pip Pal is excited to play with you today!',true)};
  $('#pTestBtn').onclick=()=>{ac();upd();const p=cur()&&cur().pet;petVoice(p?p.species:'mochi',p&&p.stage!=='egg'?p.stage:'kid','happy')};
  $('#sTalk').onchange=e=>{st.talk=e.target.checked;save();toast(st.talk?(SR?'Talking on 🎤':'Talking not supported on this device — picture tricks will show'):'Talking off')};
  $('#s3d').onchange=e=>{st.no3d=!e.target.checked;save();if(st.no3d)disable3D();else enable3D();toast(st.no3d?'Flat pets on':'3D pets on ✨')};
  $('#sPause').onchange=e=>{st.paused=e.target.checked;if(!st.paused)S.players.forEach(pl=>{if(pl.pet)pl.pet.lastTick=Date.now()});save();toast(st.paused?'Pets paused 🏫':'Pets are back! 💖')};
  document.querySelectorAll('[data-pn]').forEach(i=>i.onchange=()=>{const pl=S.players.find(x=>x.id===i.dataset.pn);pl.name=i.value.trim()||pl.name;save()});
- document.querySelectorAll('[data-pm]').forEach(i=>i.onchange=()=>{S.players.find(x=>x.id===i.dataset.pm).math=i.value;save()});
+ document.querySelectorAll('[data-skg]').forEach(i=>i.onchange=()=>{const [pid,g]=i.dataset.skg.split(':');const pl=S.players.find(x=>x.id===pid);const k=skillOf(pl,g);if(i.value==='auto'){k.auto=true}else{k.auto=false;k.lv=+i.value}k.up=k.down=0;if(g==='math')pl.math=MATH_LEVELS[k.lv-1];save();toast(`${GAMES[g].n}: ${i.value==='auto'?'Auto':'Level '+i.value}`)});
  document.querySelectorAll('[data-pmode]').forEach(i=>i.onchange=()=>{S.players.find(x=>x.id===i.dataset.pmode).mode=i.value;save()});
  document.querySelectorAll('[data-gift]').forEach(b=>b.onclick=()=>{S.players.find(x=>x.id===b.dataset.gift).coins+=20;save();SFX.coin();toast('20 coins given 🪙')});
  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(confirmTwice(b)){S.players=S.players.filter(x=>x.id!==b.dataset.del);save();grownPanel()}});
